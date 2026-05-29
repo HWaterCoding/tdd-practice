@@ -1,0 +1,32 @@
+{
+  "name": "tdd-practice",
+  "version": "1.0.0",
+  "description": "Small project to practice test driven development and working with Jest.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "test": "jest",
+    "lint": "eslint .",
+		"format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.7",
+    "@eslint/js": "^9.39.4",
+    "css-loader": "^7.1.4",
+    "eslint": "^9.39.4",
+    "globals": "^17.6.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.7",
+    "jest": "^30.4.2",
+    "prettier": "3.8.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3",
+    "webpack-dev-server": "^5.2.4"
+  }
+}
