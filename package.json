@@ -9,7 +9,7 @@
     "deploy": "git subtree push --prefix dist origin gh-pages",
     "test": "jest",
     "lint": "eslint .",
-		"format": "prettier --write ."
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
