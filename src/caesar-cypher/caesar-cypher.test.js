@@ -35,3 +35,8 @@ test("handles case-sensitivity", ()=>{
 test("works with large shift values", ()=>{
     expect(encode("abc", 1000)).toBe("mno");
 });
+
+//test to test negative shifts under 65 range
+test("works with values below 65", ()=>{
+    expect(encode("abc", -20)).toBe("ghi");
+})
