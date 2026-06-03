@@ -1,6 +1,6 @@
 import analyzeArray from "./analyze-array.js";
 
-//tests to test that the function returns an object properly
+//tests to test working with different numbers, including negatives
 test("function accepts an array and returns a simple object", ()=>{
     expect(analyzeArray([1, 2, 3, 4, 5]))
     .toEqual({
@@ -19,6 +19,16 @@ test("works with different numbers", ()=>{
         max: 30,
         length: 3
     });
+});
+
+test("works with negative numbers", ()=>{
+    expect(analyzeArray([-2, -4, -6]))
+        .toEqual({
+            average: -4,
+            min: -6,
+            max: -2,
+            length: 3
+        });
 });
 
 
@@ -40,8 +50,19 @@ test("finds the length", ()=>{
 });
 
 
-
+//testing of errors on input if array is empty
 test("rejects empty arrays", () => {
     expect(() => analyzeArray([]))
-        .toThrow();
+        .toThrow("Please enter at least one number");
 });
+
+
+test("Calls with only one number will work", ()=>{
+    expect(analyzeArray([5]))
+    .toEqual({
+        average: 5,
+        min: 5,
+        max: 5,
+        length: 1
+    });
+})
