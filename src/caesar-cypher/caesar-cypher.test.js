@@ -45,7 +45,20 @@ test("handles case-sensitivity", ()=>{
 });
 
 
-//test to accept punctuation
+//tests to ignore punctuation and only handle valid inputs
 test("handles non-letter characters properly", ()=>{
     expect(encode("Hello, World!", 3)).toBe("Khoor, Zruog!");
+})
+
+test("reject invalid input style", ()=>{
+    expect(() => encode("", 3))
+    .toThrow("Please enter a string");
+})
+
+
+//multi-test to handle amounts that dont change the string
+test("works if the amount doesn't change the string", ()=>{
+    expect(encode("ABC", 0)).toBe("ABC");
+    expect(encode("ABC", 26)).toBe("ABC");
+    expect(encode("ABC", 52)).toBe("ABC");
 })
