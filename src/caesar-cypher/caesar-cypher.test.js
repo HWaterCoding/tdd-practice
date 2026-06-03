@@ -10,33 +10,36 @@ test("check if any number input for `amount` variable works", ()=>{
     expect(encode("ABC", 10)).toBe("KLM");
 });
 
-//third test to wrap the alphabet
-test("wraps around alphabet", () => {
-    expect(encode("XYZ", 3)).toBe("ABC");
-});
-
-
-//fourth test to reject non-strings
-test("rejects non-string input", () => {
-    expect(() => encode(123, 3)).toThrow();
-});
-
-//fifth test to accept negative numbers?
-test("accepts negative numbers for the amount variable (meaning it can encode backwards)", ()=>{
-    expect(encode("DEF", -3)).toBe("ABC");
-});
-
-//additional test to test case-sensitivity
-test("handles case-sensitivity", ()=>{
-    expect(encode("xyz", 14)).toBe("lmn");
-})
-
 //test to test working with extremely large numbers
 test("works with large shift values", ()=>{
     expect(encode("abc", 1000)).toBe("mno");
 });
 
-//test to test negative shifts under 65 range
-test("works with values below 65", ()=>{
-    expect(encode("abc", -20)).toBe("ghi");
+//fifth test to accept negative numbers?
+test("accepts negative numbers for the amount variable (meaning it can encode backwards)", ()=>{
+    expect(encode("abc", -3)).toBe("xyz");
+});
+
+
+
+
+//tests to handle wrapping, both negative and positive values
+test("wraps around alphabet", () => {
+    expect(encode("XYZ", 3)).toBe("ABC");
+});
+
+test("works with negative shift wrapping as well", ()=>{
+    expect(encode("abc", -51)).toBe("bcd");
 })
+
+
+
+
+//tests for input handling cases
+test("rejects non-string input", () => {
+    expect(() => encode(123, 3)).toThrow();
+});
+
+test("handles case-sensitivity", ()=>{
+    expect(encode("xyz", 14)).toBe("lmn");
+});
