@@ -43,3 +43,9 @@ test("rejects non-string input", () => {
 test("handles case-sensitivity", ()=>{
     expect(encode("xyz", 14)).toBe("lmn");
 });
+
+
+//test to accept punctuation
+test("handles non-letter characters properly", ()=>{
+    expect(encode("Hello, World!", 3)).toBe("Khoor, Zruog!");
+})
